@@ -62,7 +62,9 @@ const VisitsHistory = () => {
   return (
     <div
       id="trackUrl"
-      className={`w-full bg-[#f5f5f5] ${visitsData.totalClicks == -1 ? "h-[60vh]" : "h-[100vh]"} flex justify-center items-center font-montserrat`}
+      className={`w-full bg-[#f5f5f5] ${
+        visitsData.totalClicks == -1 ? "h-[60vh]" : "h-[100vh]"
+      } flex justify-center items-center font-montserrat`}
     >
       <div className="w-[90%] bg-white h-4/5 border rounded-2xl p-5 flex flex-col justify-around">
         <h3 className="text-base md:text-2xl font-extrabold">
@@ -99,29 +101,35 @@ const VisitsHistory = () => {
               : "text-center text-sm md:text-lg block"
           }
         >
-          Your link got:{" "}
-          <span className="text-red-500">
-            {visitsData.totalClicks} clicks
-          </span>
+          Your link was visited:{" "}
+          <span className="text-red-500">{visitsData.totalClicks} time(s)</span>
         </p>
 
         <div className={visitsData.timeline.length === 0 ? "hidden" : ""}>
           <p className="text-center text-sm md:text-lg font-semibold mb-3">
             TimeLine Of Visits
           </p>
-          <div className="border rounded-md shadow p-5">
-            <table className="w-full">
-              <thead>
+          <div className="p-5">
+            <table className="min-w-full shadow-md border rounded">
+              <thead className="bg-white shadow-md">
                 <tr>
-                  <th className="text-left">Serial No.</th>
-                  <th className="text-left">Time</th>
+                  <th className="py-2 px-4 border-b-2 border-gray-300 text-red-500 text-left">
+                    Serial No.
+                  </th>
+                  <th className="py-2 px-4 border-b-2 border-gray-300 text-red-500 text-left">
+                    Timestamp
+                  </th>
                 </tr>
               </thead>
               <tbody className="mt-3">
                 {visitsData.timeline.map((item, index: number) => (
-                  <tr>
-                    <td>{index + 1}.</td>
-                    <td>{epochToHumanReadable(item.timestamp)}</td>
+                  <tr className={`${index % 2 ? "bg-slate-100" : ""}`}>
+                    <td className="py-2 px-4 border-b border-gray-300">
+                      {index + 1}.
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-300">
+                      {epochToHumanReadable(item.timestamp)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
