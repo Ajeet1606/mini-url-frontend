@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { URL } from "../routes/IPConfig";
 interface props {
-  inputRef: React.RefObject<HTMLDivElement> | null;
+  inputRef?: React.RefObject<HTMLDivElement> | null;
 }
 const Shortner: React.FC<props> = ({ inputRef }) => {
   const [link, setLink] = useState<string>("");
@@ -47,6 +47,7 @@ const Shortner: React.FC<props> = ({ inputRef }) => {
   return (
     <>
       <div
+        id="shortUrl"
         ref={inputRef}
         className="w-full bg-[#f5f5f5] h-[60vh] flex justify-center items-center font-montserrat"
       >
@@ -77,7 +78,7 @@ const Shortner: React.FC<props> = ({ inputRef }) => {
             className="bg-red-500 text-white font-bold py-3 md:py-4 px-4 rounded md:w-48"
             onClick={handleGetShortLink}
           >
-            Get Your Link
+            {uniqueId === "" ? `Get Your Link ➡️` : "Your Link ➡️"}
           </button>
 
           <p

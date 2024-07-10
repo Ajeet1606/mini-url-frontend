@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# MiniUrl: URL Shortner Application
+ 
+Short your long URLs and make them handy to share.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📃Table Of Content
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+ 
+## 💫Prerequisites
 
-Currently, two official plugins are available:
+Make sure you've downloaded ```Node JS``` and ```NPM```.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧑‍💻Installation
 
-## Expanding the ESLint configuration
+Clone the project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+  git clone https://github.com/Ajeet1606/url-shortner-backend.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project directory
+
+```bash
+  cd url-shortner-backend
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+## 🕸️Tech Stack
+
+### Server:
+NodeJS, ExpressJS, MongoDB
+
+
+## 😜Features
+
+### Short your URLs
+- Go to /shortUrl endpoint and make a post request with your source URL
+- It'll give you the shorted URL
+
+### Get Analytics:
+- Go to /analytics/:id endpoint and make a get request, it will give you the number of visits on your shorted URL and the timeline of visits as well.
+
+If you liked it, drop a 💫, it'll encourage me to build me.
+If you want anything to add, please raise an issue/PR.
