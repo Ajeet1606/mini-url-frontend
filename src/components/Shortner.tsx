@@ -78,7 +78,7 @@ const Shortner: React.FC<props> = ({ inputRef }) => {
             className="bg-red-500 text-white font-bold py-3 md:py-4 px-4 rounded md:w-48"
             onClick={handleGetShortLink}
           >
-            {uniqueId === "" ? `Get Your Link ➡️` : "Your Link ➡️"}
+           Get Your Link
           </button>
 
           <p

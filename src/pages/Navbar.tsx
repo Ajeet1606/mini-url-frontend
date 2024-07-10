@@ -19,7 +19,8 @@ const Navbar = () => {
             Short URL
           </p>
 
-          <p className="text-xs md:text-base font-montserrat font-semibold cursor-pointer">
+          <p className="text-xs md:text-base font-montserrat font-semibold cursor-pointer"
+          onClick={() => handleScroll('#trackUrl')}>
             Track Visits
           </p>
         </div>
