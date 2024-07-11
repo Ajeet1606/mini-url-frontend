@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Shortner from "../components/Shortner";
 import VisitsHistory from "../components/VisitsHistory";
+import ShortLinksTable from "../components/ShortLinksTable";
 
 const Home = () => {
   const inputRef = useRef<HTMLDivElement>(null)
@@ -26,6 +27,7 @@ const Home = () => {
 
       <Shortner inputRef = {inputRef}/>
       <VisitsHistory/>
+      <ShortLinksTable/>
     </>
   );
 };

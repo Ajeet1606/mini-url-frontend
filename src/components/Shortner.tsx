@@ -49,7 +49,7 @@ const Shortner: React.FC<props> = ({ inputRef }) => {
       <div
         id="shortUrl"
         ref={inputRef}
-        className="w-full bg-[#f5f5f5] h-[60vh] flex justify-center items-center font-montserrat"
+        className="w-full bg-[#f5f5f5] h-[40vh] md:h-[60vh] flex justify-center items-center font-montserrat"
       >
         <div className="w-[90%] bg-white h-4/5 border rounded-2xl p-5 flex flex-col justify-around">
           <h3 className="text-base md:text-2xl font-extrabold">

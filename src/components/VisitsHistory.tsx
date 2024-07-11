@@ -6,6 +6,10 @@ interface visitsHistory {
   totalClicks: number;
   timeline: {
     timestamp: number;
+    deviceConfig: {
+      browser: string;
+      os: string;
+    }
     _id: string;
   }[];
 }
@@ -36,6 +40,7 @@ const VisitsHistory = () => {
     console.log(link, URL);
 
     const shortId = link.split(".app/")[1];
+    // const shortId = link.split(":8001/")[1];
     console.log(shortId);
 
     try {
@@ -63,11 +68,11 @@ const VisitsHistory = () => {
     <div
       id="trackUrl"
       className={`w-full bg-[#f5f5f5] ${
-        visitsData.totalClicks == -1 ? "h-[60vh]" : "h-[100vh]"
-      } flex justify-center items-center font-montserrat`}
+        visitsData.totalClicks == -1 ? "h-[40vh] sm:h-[50vh] md:h-[60vh]" : "h-max"
+      } flex justify-center items-center font-montserrat py-3`}
     >
       <div className="w-[90%] bg-white h-4/5 border rounded-2xl p-5 flex flex-col justify-around">
-        <h3 className="text-base md:text-2xl font-extrabold">
+        <h3 className="text-base md:text-2xl font-extrabold mb-2">
           Track The Visits On Your Link
         </h3>
         <div className="flex flex-col gap-2">
@@ -88,7 +93,7 @@ const VisitsHistory = () => {
         </div>
 
         <button
-          className="bg-red-500 text-white font-bold py-3 md:py-4 px-4 rounded md:w-48"
+          className="bg-red-500 text-white font-bold py-3 md:py-4 px-4 rounded my-3 md:w-48"
           onClick={handleGetShortLink}
         >
           Get Visits
@@ -106,18 +111,21 @@ const VisitsHistory = () => {
         </p>
 
         <div className={visitsData.timeline.length === 0 ? "hidden" : ""}>
-          <p className="text-center text-sm md:text-lg font-semibold mb-3">
+          <p className="text-center text-sm md:text-lg font-semibold my-3">
             TimeLine Of Visits
           </p>
-          <div className="p-5">
-            <table className="min-w-full shadow-md border rounded">
-              <thead className="bg-white shadow-md">
+          <div className=" max-h-[50vh] overflow-auto">
+            <table className="min-w-full shadow-md border">
+              <thead className="bg-white shadow-md sticky top-0">
                 <tr>
                   <th className="py-2 px-4 border-b-2 border-gray-300 text-red-500 text-left">
                     Serial No.
                   </th>
                   <th className="py-2 px-4 border-b-2 border-gray-300 text-red-500 text-left">
                     Timestamp
+                  </th>
+                  <th className="py-2 px-4 border-b-2 border-gray-300 text-red-500 text-left">
+                    Source Device
                   </th>
                 </tr>
               </thead>
@@ -129,6 +137,10 @@ const VisitsHistory = () => {
                     </td>
                     <td className="py-2 px-4 border-b border-gray-300">
                       {epochToHumanReadable(item.timestamp)}
+                    </td>
+                    <td className="py-2 px-4 border-b border-gray-300">
+                      <span>OS: {item?.deviceConfig?.os}</span> <br />
+                      <span>Browser: {item?.deviceConfig?.browser}</span>
                     </td>
                   </tr>
                 ))}
