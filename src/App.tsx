@@ -1,12 +1,13 @@
 import "./App.css";
+import { ShortLinksContextProvider } from "./context/ShortLinksContext";
 import RouteConfig from "./routes/RouteConfig";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      <RouteConfig />
-      {/* <Footer/> */}
+      <ShortLinksContextProvider>
+        <RouteConfig />
+      </ShortLinksContextProvider>
     </>
   );
 }

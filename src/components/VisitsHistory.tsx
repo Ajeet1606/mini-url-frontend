@@ -21,8 +21,6 @@ const VisitsHistory = () => {
     timeline: [],
   });
 
-  console.log(visitsData);
-
   const handleLinkInput = (e: any) => {
     setLink(e?.target.value);
     setShowErrorMessage(false);
@@ -37,18 +35,12 @@ const VisitsHistory = () => {
       setShowErrorMessage(true);
       return;
     }
-    console.log(link, URL);
 
     const shortId = link.split(".app/")[1];
-    // const shortId = link.split(":8001/")[1];
-    console.log(shortId);
 
     try {
       const response = await fetch(`${URL}/analytics/${shortId}`, {
         method: "GET",
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
       });
 
       // Check if the response is OK (status in the range 200-299)
@@ -57,8 +49,8 @@ const VisitsHistory = () => {
       }
 
       // Parse the response data
-      const data = await response.json();
-
+      const data: visitsHistory = await response.json();
+      data.timeline.sort((a, b) => b.timestamp - a.timestamp);
       setVisitsData(data);
     } catch (error) {
       console.log(error);

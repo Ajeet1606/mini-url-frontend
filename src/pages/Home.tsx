@@ -1,11 +1,22 @@
-import { useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Shortner from "../components/Shortner";
 import VisitsHistory from "../components/VisitsHistory";
 import ShortLinksTable from "../components/ShortLinksTable";
-
+import { ShortLinksContext } from "../context/ShortLinksContext";
 const Home = () => {
   const inputRef = useRef<HTMLDivElement>(null)
+  const shortLinkContext = useContext(ShortLinksContext)
 
+  useEffect(() => {
+    const localStorageData = localStorage.getItem("shortLinks");
+    if(shortLinkContext && localStorageData) {
+      const {assignShortLinks} = shortLinkContext
+
+      const shortLinksArray = JSON.parse(localStorageData);
+      assignShortLinks(shortLinksArray);
+    }
+  }, [])
+  
   function handleGetStarted() {
     if(inputRef && inputRef.current) {
       inputRef.current.scrollIntoView({ behavior: "smooth" });
