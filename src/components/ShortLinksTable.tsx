@@ -28,7 +28,7 @@ const ShortLinksTable = () => {
           All Your Shorted Links
         </h3>
 
-        <div>
+        <div className={`${shortedLinks.length == 0 ? "hidden": ""}`}>
           <div className=" max-h-[50vh] overflow-auto">
             <table className="min-w-full shadow-md border">
               <thead className="bg-white shadow-md sticky top-0">
@@ -66,6 +66,16 @@ const ShortLinksTable = () => {
             </table>
           </div>
         </div>
+
+        <p
+          className={
+            shortedLinks.length == 0
+              ? "text-center text-sm md:text-lg block"
+              : "hidden"
+          }
+        >
+          No history found at the moment.
+        </p>
       </div>
     </div>
   );
