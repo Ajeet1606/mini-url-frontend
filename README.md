@@ -18,6 +18,7 @@ Clone the project
 
 ```bash
   git clone https://github.com/Ajeet1606/url-shortner-backend.git
+  git clone https://github.com/Ajeet1606/url-shortner-backend
 ```
 
 Go to the project directory
@@ -48,11 +49,11 @@ NodeJS, ExpressJS, MongoDB
 ## 😜Features
 
 ### Short your URLs
-- Go to /shortUrl endpoint and make a post request with your source URL
-- It'll give you the shorted URL
+- Short your long URLs in single click
+- Get history of all shorted URLs
 
 ### Get Analytics:
-- Go to /analytics/:id endpoint and make a get request, it will give you the number of visits on your shorted URL and the timeline of visits as well.
+- Track the visits of each shorted URL, it will give you the number of visits on your shorted URL and the timeline of visits as well.
 
 If you liked it, drop a 💫, it'll encourage me to build me.
 If you want anything to add, please raise an issue/PR.
